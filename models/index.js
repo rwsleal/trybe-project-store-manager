@@ -1,3 +1,4 @@
 const connection = require('./connection');
+const productsModel = require('./productsModel');
 
-module.exports = { connection }
+module.exports = { connection, productsModel }
