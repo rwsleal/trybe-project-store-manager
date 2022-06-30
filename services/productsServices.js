@@ -1,7 +1,7 @@
-const { productsModel } = require('../models');
+const { productsModels } = require('../models');
 
 const getAll = async () => {
-  const result = await productsModel.getAll();
+  const result = await productsModels.getAll();
 
   return result;
 };
@@ -9,7 +9,7 @@ const getAll = async () => {
 const getById = async (req) => {
   const { id } = req.params;
 
-  const result = await productsModel.getById(id);
+  const result = await productsModels.getById(id);
 
   if (!result.length) {
     return null;
