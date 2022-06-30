@@ -3,9 +3,9 @@ const { expect } = require('chai');
 
 const { connection, productsModels } = require('../../../models');
 
-describe('Tests the behavior of the products model layer', () => {
+describe('Tests the behavior of the products models layer', () => {
 
-  describe('Tests if it returns all products', () => {
+  describe('Case it returns all products', () => {
     const mockResponse = [
       [
         {
@@ -37,7 +37,7 @@ describe('Tests the behavior of the products model layer', () => {
     });
   });
 
-  describe('Tests if it returns a product by its id', () => {
+  describe('Case it returns a product by its id', () => {
     const mockResponse = [
       {
         id: 1,
