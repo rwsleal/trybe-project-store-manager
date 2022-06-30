@@ -18,7 +18,16 @@ const getById = async (req) => {
   return result[0];
 };
 
+const create = async (req) => {
+  const { name } = req.body;
+
+  const result = await productsModels.create(name);
+
+  return { id: result.insertId, name };
+};
+
 module.exports = {
   getAll,
   getById,
+  create,
 };

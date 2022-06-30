@@ -15,13 +15,11 @@ describe('Tests the behavior of the products services layer', () => {
     const mockResponse = [
       {
         id: 1,
-        name: 'produto A',
-        quantity: 10
+        name: 'produto A'
       },
       {
         id: 2,
-        name: 'produto B',
-        quantity: 20
+        name: 'produto B'
       },
     ];
 
@@ -45,7 +43,7 @@ describe('Tests the behavior of the products services layer', () => {
     const mockResponse = [
       {
       id: 1,
-      name: 'produto A',
+      name: 'produto A'
       }
     ];
 
