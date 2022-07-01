@@ -26,8 +26,18 @@ const create = async (req) => {
   return { id: result.insertId, name };
 };
 
-module.exports = {
-  getAll,
-  getById,
-  create,
+const remove = async (req) => {
+  const { id } = req.params;
+
+  const idCheck = await productsModels.getById(id);
+
+  if (!idCheck.length) {
+    return null;
+  }
+
+  const result = await productsModels.remove(id);
+
+  return result;
 };
+
+module.exports = { getAll, getById, create, remove };
