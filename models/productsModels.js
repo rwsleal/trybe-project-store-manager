@@ -21,6 +21,13 @@ const create = async (name) => {
   return result;
 };
 
+const update = async (id, name) => {
+  const sqlQuery = 'UPDATE StoreManager.products SET name = ? WHERE id = ?;';
+  const [result] = await connection.execute(sqlQuery, [name, id]);
+
+  return result;
+};
+
 const remove = async (id) => {
   const sqlQuery = 'DELETE FROM StoreManager.products WHERE id = ?;';
   const [result] = await connection.execute(sqlQuery, [id]);
@@ -28,4 +35,4 @@ const remove = async (id) => {
   return result;
 };
 
-module.exports = { getAll, getById, create, remove };
+module.exports = { getAll, getById, create, update, remove };

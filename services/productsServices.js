@@ -26,6 +26,19 @@ const create = async (req) => {
   return { id: result.insertId, name };
 };
 
+const update = async (req) => {
+  const { id } = req.params;
+  const { name } = req.body;
+
+  const result = await productsModels.update(id, name);
+
+  if (result.changedRows === 0) {
+    return null;
+  }
+
+  return { id, name };
+};
+
 const remove = async (req) => {
   const { id } = req.params;
 
@@ -40,4 +53,4 @@ const remove = async (req) => {
   return result;
 };
 
-module.exports = { getAll, getById, create, remove };
+module.exports = { getAll, getById, create, update, remove };
