@@ -1,7 +1,7 @@
 const express = require('express');
 require('express-async-errors');
 const { errorHandler } = require('./middlewares');
-const { productsRoutes } = require('./routes');
+const { productsRoutes, salesRoutes } = require('./routes');
 
 const app = express();
 app.use(express.json());
@@ -12,6 +12,7 @@ app.get('/', (_request, response) => {
 });
 
 app.use('/products', productsRoutes);
+app.use('/sales', salesRoutes);
 app.use(errorHandler);
 
 // não remova essa exportação, é para o avaliador funcionar
