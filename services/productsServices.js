@@ -43,7 +43,6 @@ const remove = async (req) => {
   const { id } = req.params;
 
   const idCheck = await productsModels.getById(id);
-
   if (!idCheck.length) {
     return null;
   }
