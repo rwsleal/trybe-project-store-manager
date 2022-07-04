@@ -1,10 +1,36 @@
-const { salesModels } = require('../models');
+const { salesModels, productsModels } = require('../models');
+
+const getAll = async () => {
+  const result = await salesModels.getAll();
+
+  return result.map((queryResult) => ({
+    saleId: queryResult.sale_id,
+    date: queryResult.date,
+    productId: queryResult.product_id,
+    quantity: queryResult.quantity,
+  }));
+};
+
+const getById = async (req) => {
+  const { id } = req.params;
+  const result = await salesModels.getById(id);
+
+  if (!result.length) {
+    return null;
+  }
+
+  return result.map((queryResult) => ({
+    date: queryResult.date,
+    productId: queryResult.product_id,
+    quantity: queryResult.quantity,
+  }));
+};
 
 const create = async (req) => {
   const products = req.body;
 
   const getAllIds = await Promise.all(products
-    .map(async ({ productId }) => salesModels.getById(productId)));
+    .map(async ({ productId }) => productsModels.getById(productId)));
 
   const idCheck = getAllIds.every((idResponse) => (idResponse.length));
 
@@ -23,4 +49,4 @@ const create = async (req) => {
   return result;
 };
 
-module.exports = { create };
+module.exports = { getAll, getById, create };
