@@ -49,6 +49,33 @@ const create = async (req) => {
   return result;
 };
 
+const update = async (req) => {
+  const { id } = req.params;
+  const products = req.body;
+
+  const saleIdCheck = await salesModels.getById(id);
+  if (!saleIdCheck.length) {
+    return { saleId: null };
+  }
+
+  const getAllIds = await Promise.all(products
+    .map(async ({ productId }) => productsModels.getById(productId)));
+
+  const productsIdCheck = getAllIds.every((idResponse) => (idResponse.length));
+
+  if (!productsIdCheck) {
+    return { saleId: id, itemsUpdated: null };
+  }
+
+  const result = await Promise.all(products
+    .map(async ({ productId, quantity }) => {
+      await salesModels.update(id, quantity, productId);
+      return { productId, quantity };
+    }));
+
+  return { saleId: id, itemsUpdated: result };
+};
+
 const remove = async (req) => {
   const { id } = req.params;
 
@@ -62,4 +89,4 @@ const remove = async (req) => {
   return result;
 };
 
-module.exports = { getAll, getById, create, remove };
+module.exports = { getAll, getById, create, update, remove };
