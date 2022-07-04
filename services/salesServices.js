@@ -49,4 +49,17 @@ const create = async (req) => {
   return result;
 };
 
-module.exports = { getAll, getById, create };
+const remove = async (req) => {
+  const { id } = req.params;
+
+  const idCheck = await salesModels.getById(id);
+  if (!idCheck.length) {
+    return null;
+  }
+
+  const result = await salesModels.remove(id);
+
+  return result;
+};
+
+module.exports = { getAll, getById, create, remove };

@@ -35,4 +35,11 @@ const createSaleProducts = async (saleId, productId, quantity) => {
   return { productId, quantity };
 };
 
-module.exports = { getAll, getById, createSale, createSaleProducts };
+const remove = async (id) => {
+  const sqlQuery = 'DELETE FROM StoreManager.sales WHERE id = ?';
+  const [result] = await connection.execute(sqlQuery, [id]);
+
+  return result;
+};
+
+module.exports = { getAll, getById, createSale, createSaleProducts, remove };
