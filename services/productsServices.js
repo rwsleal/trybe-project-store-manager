@@ -52,4 +52,14 @@ const remove = async (req) => {
   return result;
 };
 
-module.exports = { getAll, getById, create, update, remove };
+const search = async (req) => {
+  const searchTerm = req.query.q;
+
+  const getAllProducts = await productsModels.getAll();
+
+  const result = getAllProducts.filter(({ name }) => name.includes(searchTerm));
+
+  return result;
+};
+
+module.exports = { getAll, getById, create, update, remove, search };

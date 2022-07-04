@@ -42,4 +42,10 @@ const remove = async (req, res) => {
   return res.status(204).end();
 };
 
-module.exports = { getAll, getById, create, update, remove };
+const search = async (req, res) => {
+  const result = await productsServices.search(req);
+
+  return res.status(200).json(result);
+};
+
+module.exports = { getAll, getById, create, update, remove, search };
