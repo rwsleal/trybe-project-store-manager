@@ -10,13 +10,15 @@ A publicação deste código está de acordo com o Código de Ética e Conduta e
 
 Foi desenvolvido uma API de gerenciamento de vendas no formato dropshipping onde é possível criar, visualizar, deletar e atualizar produtos e vendas. Pude colocar em prática o conhecimento sobre padrões arquiteturais que adquiri, usando a arquitetura MSC (model-service-controller). Além disso, exercitei meus conhecimentos sobre REST, criando uma API completamente RESTful.
 
+Também foram desenvolvidos testes unitários com o intuito de cobrir pelo menos 60% das camadas MSC (models, services, controllers) da aplicação.
+
 **:warning: Este foi um projeto feito como forma avaliativa do curso de Desenvolvimento Web Full-Stack, durante o módulo de Back-End. Os arquivos do docker e todos os relacionados ao banco (.sql), além de algumas linhas iniciais do app.js foram todas desenvolvidas pela Trybe.**
 
 ---
 
 # Técnologias usadas
 
-Desenvolvido usando: JavaScript ES6, Node.Js, ExpressJS, ESLint, MySQL, conceitos RESTful e bibliotecas auxiliares.
+Desenvolvido usando: JavaScript ES6, Node.Js, ExpressJS, ESLint, MySQL, conceitos RESTful e bibliotecas auxiliares. Para os testes unitários, foram utilizadas as bibliotecas mocha, chai e sinon.
 
 ---
 
