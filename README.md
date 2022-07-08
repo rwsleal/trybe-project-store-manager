@@ -18,7 +18,7 @@ Também foram desenvolvidos testes unitários com o intuito de cobrir pelo menos
 
 # Técnologias usadas
 
-Desenvolvido usando: JavaScript ES6, Node.Js, ExpressJS, ESLint, MySQL, conceitos RESTful e bibliotecas auxiliares. Para os testes unitários, foram utilizadas as bibliotecas mocha, chai e sinon.
+Desenvolvido usando: JavaScript ES6, Node.Js, Docker, ExpressJS, ESLint, MySQL, conceitos RESTful e bibliotecas auxiliares. Para os testes unitários, foram utilizadas as bibliotecas mocha, chai e sinon.
 
 ---
 
